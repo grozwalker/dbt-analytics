@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_amocrm
+    tables:
+      - name: leads
+        freshness: # make this a little more strict
+          warn_after: {count: 1, period: minute}
+          error_after: {count: 1, period: minute}
+        loaded_at_field: _airbyte_emitted_at
